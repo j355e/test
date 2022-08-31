@@ -1,16 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <base-container title="Vuex">
+    <!-- <h2>Directly from store: {{ $store.state.counter}}</h2>
+    <h4>From computed property in App.vue: {{ counter }}</h4> -->
+    <the-counter></the-counter>
+    <button @click="add">Add 1</button>
+    <change-counter ></change-counter>
+    <button @click="increase(5)">Add 5</button>
+  </base-container>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import TheCounter from "./components/TheCounter.vue"
+import ChangeCounter from "./components/ChangeCounter.vue";
 export default {
-  name: 'App',
   components: {
-    HelloWorld
-  }
+    TheCounter,
+    ChangeCounter
+  },
+  methods: {
+    add(){
+      this.$store.commit('increment');
+    },
+    increase(payload){
+      this.$store.commit('increase', payload);
+    }
+  },
+  
 }
 </script>
 
