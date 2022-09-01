@@ -8,44 +8,44 @@
     <change-counter ></change-counter>
     <button @click="increase(5)">Add 5</button>
   </base-container> -->
-  <watch-component @call="call" :toggle="toggle"></watch-component>
-  <div>
-  
-  <button @click="ughhh">{{toggle}}</button>
-</div>
+    <watch-component @call="call" :toggle="toggle"></watch-component>
+    <div>
+      <button @click="ughhh">{{ toggle }}</button>
+      <the-counter></the-counter>
+      <h3>From the store:</h3>
+      <change-counter></change-counter>
+    </div>
   </div>
 </template>
 
 <script>
-import TheCounter from "./components/TheCounter.vue"
+import TheCounter from "./components/TheCounter.vue";
 import ChangeCounter from "./components/ChangeCounter.vue";
 export default {
   components: {
     TheCounter,
-    ChangeCounter
+    ChangeCounter,
   },
-  data(){
-    return{
-    toggle: false
-    }
+  data() {
+    return {
+      toggle: false,
+    };
   },
   methods: {
-    ughhh(){
-      
+    ughhh() {
       this.toggle = !this.toggle;
     },
-    add(){
-      this.$store.commit('increment');
+    add() {
+      this.$store.commit("increment");
     },
-    increase(payload){
-      this.$store.commit('increase', payload);
+    increase(payload) {
+      this.$store.commit("increase", payload);
     },
-    call(){
-      alert("call from child")
-    }
+    call() {
+      alert("call from child");
+    },
   },
-  
-}
+};
 </script>
 
 <style>

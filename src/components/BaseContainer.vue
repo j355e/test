@@ -1,11 +1,11 @@
 <template>
-    <div>{{title}}</div>
-    <slot></slot>
+  <div>{{ title }}</div>
+  <slot></slot>
 </template>
 <script>
-    export default{
-        props: {
-            title: String
-        }
-    }
+export default {
+  props: {
+    title: String,
+  },
+};
 </script>
